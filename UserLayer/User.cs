@@ -9,8 +9,8 @@ namespace UserLayer
     public class User
     {
         #region Fields
-        private string password;
-        private string username;
+        protected string password;
+        protected string username;
 
         #endregion
 

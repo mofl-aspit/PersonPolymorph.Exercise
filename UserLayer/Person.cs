@@ -9,9 +9,9 @@ namespace UserLayer
     public abstract class Person
     {
         #region Fields
-        private string firstname;
-        private string lastnames;
-        private string ssn;
+        protected string firstname;
+        protected string lastnames;
+        protected string ssn;
 
         //yaaay
         #endregion
@@ -95,7 +95,7 @@ namespace UserLayer
         {
             
             bool CorrectlyFormatted = false;
-            int stringCatcher;
+            
 
             if (String.IsNullOrWhiteSpace(ssn))
             {
@@ -108,7 +108,7 @@ namespace UserLayer
                 error = "ssn is too short, please try again";
             }
             //currently added, not sure if works
-            else if(!int.TryParse(ssn, out stringCatcher))
+            else if(!IsValidNumericalString(ssn))
             {
                 CorrectlyFormatted = false;
                 error = "ssn contains letters, please try again";
@@ -123,7 +123,21 @@ namespace UserLayer
             return CorrectlyFormatted;
         }
 
-        
+        private static bool IsValidNumericalString(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return false;
+            }
+            else if (!s.Any(char.IsDigit))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         #endregion
 
     }
