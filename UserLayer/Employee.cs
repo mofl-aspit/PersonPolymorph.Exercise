@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace UserLayer
 {
-    class Employee
+    class Employee : Person
     {
         #region Constants
         private const decimal TopTaxLimit = 467300m;
-        private const double TopTaxRate = 0.15;
-        private const double NormalTaxRate = 0.37;
+        private const decimal TopTaxRate = 0.15m;
+        private const decimal NormalTaxRate = 0.37m;
         #endregion
 
         #region Fields
@@ -22,9 +22,10 @@ namespace UserLayer
         #endregion
 
         #region Constructor
-        public Employee(decimal baseSalary, decimal christmasBonus)
+        public Employee(string username, string password, decimal baseSalary, decimal christmasBonus) : base(username, password)
         {
-
+            BaseSalary = baseSalary;
+            ChristmasBonus = christmasBonus;
         }
         #endregion
 
@@ -104,15 +105,17 @@ namespace UserLayer
 
         public decimal GetYearlyPayout()
         {
-            decimal christmasBonusCalculator;
+            decimal christmasBonusCalculator = 0m;
 
             if(ChristmasBonus != 0)
             {
-                
+                christmasBonusCalculator = ChristmasBonus * NormalTaxRate;
+
             }
 
 
             decimal YearlyPayout = GetMonthlyPayout() * 12;
+            YearlyPayout = YearlyPayout + christmasBonusCalculator;
 
             return YearlyPayout;
 

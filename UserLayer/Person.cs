@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserLayer
 {
-    public abstract class Person
+    public abstract class Person : User
     {
         #region Fields
         protected string firstname;
@@ -17,7 +17,10 @@ namespace UserLayer
         #endregion
 
         #region Constructor
+        public Person(string username, string password) : base(username, password)
+        {
 
+        }
         #endregion
 
         #region Properties
