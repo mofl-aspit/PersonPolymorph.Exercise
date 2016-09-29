@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Employee : Person
+    public class Employee : Person
     {
         #region Constants
         private const decimal TopTaxLimit = 467300m;
