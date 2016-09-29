@@ -19,47 +19,48 @@ namespace UserLayer
 
 
         #region Fields
-        protected byte payLevel;
-        protected double yearlyRisePercent;
+        protected decimal courseSalary;
+        protected short numberOfYearlyCourses;
+
 
 
         #endregion
 
 
         #region Constructor
-        public Lecturer(string username, string password ,decimal baseSalary, decimal christmasBonus, 
-            byte payLevel, double yearlyRisePercent) : base(username, password, baseSalary, christmasBonus)
+        public Lecturer(string username, string password ,decimal baseSalary, decimal christmasBonus,
+            decimal courseSalary, short numberOfYearlyCourses) : base(username, password, baseSalary, christmasBonus)
         {
-            ChristmasBonus = christmasBonus;
-            PayLevel = payLevel;
+            CourseSalary = courseSalary;
+            NumberOfYearlyCourses = numberOfYearlyCourses;
         }
         #endregion
 
 
         #region Properties
-        public byte PayLevel
+        public decimal CourseSalary
         {
             get
             {
-                return payLevel;
+                return courseSalary;
             }
 
             set
             {
-                payLevel = value;
+                courseSalary = value;
             }
         }
 
-        public double YearlyRisePercent
+        public short NumberOfYearlyCourses
         {
             get
             {
-                return yearlyRisePercent;
+                return numberOfYearlyCourses;
             }
 
             set
             {
-                yearlyRisePercent = value;
+                numberOfYearlyCourses = value;
             }
         }
         #endregion
