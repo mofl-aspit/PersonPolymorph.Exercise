@@ -44,6 +44,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Lecturer.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
